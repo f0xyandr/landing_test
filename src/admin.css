@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f3ee; color: #302c28; font-family: Arial, Helvetica, sans-serif; }
+a { color: #91513a; }
+button { font: inherit; cursor: pointer; }
+button:focus, a:focus { outline: 2px solid #a9553b; outline-offset: 4px; }
+.admin { width: 90%; max-width: 1100px; margin: 55px auto; }
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.admin-brand { font-size: 15px; letter-spacing: 3px; text-decoration: none; }
+.admin-brand span { margin-left: 10px; }
+h1 { font-size: 32px; font-weight: 400; margin: 24px 0 12px; }
+.admin-header p { font-size: 13px; line-height: 1.7; color: #817366; margin: 0; }
+.admin-button { background: #a9553b; color: white; border: 1px solid #a9553b; padding: 12px 20px; font-size: 12px; }
+.admin-button:hover { background: #8b402a; }
+.admin-button:disabled { opacity: .5; cursor: default; }
+.admin-summary { font-size: 14px; padding: 18px 0; border-top: 1px solid #ddd2c4; }
+.registration-card { background: #fffdf8; padding: 26px 30px; margin-bottom: 18px; border: 1px solid #e5ddd0; box-shadow: 0 6px 20px rgba(57,43,29,.05); }
+.card-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee5d9; padding-bottom: 20px; }
+.card-header h2 { font-size: 20px; font-weight: 400; margin: 0; overflow-wrap: break-word; max-width: 65%; }
+.card-header time { font-size: 12px; color: #817366; margin-left: 16px; }
+dl { display: flex; flex-wrap: wrap; margin: 20px 0 0; }
+dl > div { width: 25%; padding-right: 15px; }
+dt { font-size: 10px; color: #94816f; margin-bottom: 10px; }
+dd { font-size: 13px; margin: 0; line-height: 1.6; overflow-wrap: break-word; }
+.registration-id { font-family: monospace; font-size: 11px; }
+.admin-pagination { display: flex; justify-content: space-between; align-items: center; margin-top: 26px; }
+.admin-pagination span { font-size: 12px; color: #817366; }
+.admin-empty, .admin-error { background: #fffdf8; border: 1px solid #e5ddd0; padding: 30px; line-height: 1.8; }
+.admin-empty h2 { font-size: 22px; font-weight: 400; margin: 0; }
+.admin-empty p, .admin-empty a { font-size: 13px; }
+.admin-error { background: #fae6df; color: #943e29; font-size: 13px; }
+.admin-error button { display: block; margin-top: 15px; }
+@media (max-width: 700px) {
+  .admin { margin-top: 30px; }
+  h1 { font-size: 26px; }
+  .admin-header { display: block; }
+  .admin-header > button { margin-top: 20px; }
+  .registration-card { padding: 22px; }
+  .card-header { display: block; }
+  .card-header h2 { max-width: 100%; }
+  .card-header time { display: block; margin: 12px 0 0; }
+  dl > div { width: 50%; margin-bottom: 18px; }
+  dl { margin-bottom: -18px; }
+}
+@media (max-width: 360px) { dl > div { width: 100%; } .admin-pagination .admin-button { padding: 10px 12px; } }
