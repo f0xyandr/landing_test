@@ -4,8 +4,9 @@ const { rateLimit } = require('express-rate-limit');
 const Datastore = require('@seald-io/nedb');
 const path = require('node:path');
 const fs = require('node:fs/promises');
+const { createRequestLogger } = require('./request-logger.cjs');
 
-async function createApp({ dataDir = path.resolve(__dirname, '../data'), distDir = path.resolve(__dirname, '../dist'), limit = 15 } = {}) {
+async function createApp({ dataDir = path.resolve(__dirname, '../data'), distDir = path.resolve(__dirname, '../dist'), limit = 15, requestLog = null } = {}) {
   await fs.mkdir(dataDir, { recursive: true, mode: 0o700 });
   const filename = path.join(dataDir, 'registrations.db');
   const db = new Datastore({ filename });
@@ -14,6 +15,7 @@ async function createApp({ dataDir = path.resolve(__dirname, '../data'), distDir
   await fs.chmod(filename, 0o600);
 
   const app = express();
+  if (requestLog) app.use(createRequestLogger(requestLog));
   app.disable('x-powered-by');
   app.use(helmet({
     contentSecurityPolicy: {
